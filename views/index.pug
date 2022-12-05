@@ -3,3 +3,40 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div(class="recentEntry")
+    h2(class="h2")= "Recent Entries"
+      for val in data
+        div(class="entry")
+          p Entry ID: #{val.id}
+          p Tile: #{val.title}
+          div(class="entryContent")
+            p Entry: #{val.entry}
+          form(action = '/update', method = 'POST')
+            label(for = "entry") = "Entry ID: "
+            input(name = 'id', id = "id", value = val.id)
+            label(for = "entry") = "New Entry: "
+            input(name = 'entry', id = "entry", value = '')
+            button(type = "submit", onclick = "editText()")
+              p UPDATE 
+
+  div(class = "newEntry")
+    h2(class = "h2") = "Write a new entry!"
+      form(action = '/new', method = 'POST')
+        div
+          label(for = "title") = "Entry Title: "
+          input(name = "title", id = "title", value="")
+          br
+          label(for = "entry") = "Entry Content: "
+          input(name = 'entry', id = "entry", value = '')
+        div
+        button(type = 'submit')
+          p SUBMIT
+
+  div(class = "deleteEntry")
+    h2(class = "h2") = "Delete a diary entry..."
+      form(action = '/delete', method = 'POST')
+        label(for = "entry") = "Entry ID: "
+        input(name = 'id', id="id", value="")
+        button(type = 'submit')
+          p DELETE
