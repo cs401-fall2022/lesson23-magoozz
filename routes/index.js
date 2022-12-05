@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
             db.exec(`create table entry (
                      id INTEGER PRIMARY KEY AUTOINCREMENT,
                      title text NOT NULL,
-                     entry text NOT NULL);`,
+                     text text NOT NULL);`,
               () => {
                 db.all(`SELECT * entry FROM entry`, 
                 (err, rows) => {
@@ -52,13 +52,13 @@ router.post('/new', (req, res, next) => {
         exit(1);
       }
       console.log("inserting new post");
-      db.run(`INSERT INTO entry (title, entry)
-                values (?, ?);` , [req.body.title, req.body.entry]);
+      db.run(`INSERT INTO entry (title, text)
+                values (?, ?);`,[req.body.title, req.body.text]);
       //redirect to homepage
       res.redirect('/');
     }
   );
-})
+});
 
 router.post('/update', (req, res, next) => {
   var db = new sqlite.Database('diary.sqlite',
@@ -69,12 +69,12 @@ router.post('/update', (req, res, next) => {
         exit(1);
       }
       console.log("updating post");
-      db.run(`UPDATE entry SET entry=? WHERE id=?;`,[req.body.entry, req.body.id]);
+      db.run(`UPDATE entry SET text=? WHERE id=?;`,[req.body.text, req.body.id]);
       //redirect to homepage
       res.redirect('/');
     }
   );
-})
+});
 
 router.post('/delete', (req, res, next) => {
   var db = new sqlite.Database('diary.sqlite',
@@ -85,10 +85,11 @@ router.post('/delete', (req, res, next) => {
         exit(1);
       }
       console.log("Deleting post");
-      db.run(`DELETE FROM entry WHERE id=?;` ,[req.body.id]);     
+      db.run(`DELETE FROM entry WHERE id=?;`,[req.body.id]); 
+      //redirect to homepage    
       res.redirect('/');
     }
   );
-})
+});
 
 module.exports = router;

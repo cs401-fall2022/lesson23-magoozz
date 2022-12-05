@@ -1,8 +1,115 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Comic Sans MS, Comic Sans, cursive;
+  background-color: rgb(	2, 195, 154);
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  text-align: center;
+  color:rgb(240,243,189);
+  font-size: 40px;
+}
+
+.header {
+  text-align: center;
+}
+
+p {
+  font: 14px Comic Sans MS, Comic Sans, cursive;
+}
+
+label {
+  font: 14px Comic Sans MS, Comic Sans, cursive;
+}
+
+button {
+  text-align: center;
+  font-size: 20px;
+  margin: 4px;
+  border-style: solid;
+  border-width: 0px;
+  background-color: rgb(2, 195, 154);
+  color: rgb(240,243,189);
+}
+
+.newEntry {
+  text-align: center;
+  background-color: rgb(2, 128, 144);
+  padding: 0px;
+  margin: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(5,102,141);
+  font-size: 20px;
+}
+
+.recentEntry {
+  text-align: center;
+  background-color: rgb(2, 128, 144);
+  padding: 5px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: scroll;
+  height: 500px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(5,102,141);
+  font-size: 20px;
+}
+
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.deleteEntry {
+  text-align: center;
+  background-color: rgb(2, 128, 144);
+  padding: 5px;
+  margin: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(5,102,141);
+  font-size: 20px;
+}
+
+.entry {
+  background-color: rgb(2, 128, 144);
+  padding: 5px;
+  margin: 25px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(5,102,141);
+  font-size: 20px;
+}
+
+.entryContent {
+  text-align: left;
+  background-color: rgb(240,243,189);
+  padding: 5px;
+  margin: 25px;
+  border-color: rgb(5,102,141);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+textarea {
+  text-align: left;
+  background-color: rgb(5, 82, 112);
+  display: inline-block;
+  color: rgb(240,243,189);
+  border-color: rgb(5,102,141);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.hide {
+  display:none;
 }

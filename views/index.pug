@@ -2,41 +2,41 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+
+  div(class = "header")
+    h2(class = "h2")= "Welcome to my super secret diary...though I'm not quite sure what you're doing here"
+
+  div(class = "newEntry")
+    h2(class = "h2")= "Write a new entry!"
+      form(action= '/new', method= 'POST')
+        div
+          br
+          label(for = "title")
+          textarea.new_tile(name='title' type='text' required placeholder='Title of entry...')
+          br
+          label(for = "text")
+          textarea.new_entry(name='text' type='text' required placeholder='Input thoughts here...')
+        div
+        button(type = 'submit') SUBMIT    
 
   div(class="recentEntry")
     h2(class="h2")= "Recent Entries"
       for val in data
         div(class="entry")
-          p Entry ID: #{val.id}
-          p Tile: #{val.title}
+          p #{val.id}. #{val.title}
+          break
           div(class="entryContent")
-            p Entry: #{val.entry}
-          form(action = '/update', method = 'POST')
-            label(for = "entry") = "Entry ID: "
-            input(name = 'id', id = "id", value = val.id)
-            label(for = "entry") = "New Entry: "
-            input(name = 'entry', id = "entry", value = '')
-            button(type = "submit", onclick = "editText()")
-              p UPDATE 
-
-  div(class = "newEntry")
-    h2(class = "h2") = "Write a new entry!"
-      form(action = '/new', method = 'POST')
-        div
-          label(for = "title") = "Entry Title: "
-          input(name = "title", id = "title", value="")
-          br
-          label(for = "entry") = "Entry Content: "
-          input(name = 'entry', id = "entry", value = '')
-        div
-        button(type = 'submit')
-          p SUBMIT
+            p #{val.text}
+          form(action= '/update', method= 'POST')
+            input(type='hidden', name='id', id='id', value=val.id)
+            br
+            textarea.update(name='text' type='text' required placeholder='How will you edit this entry...')
+            br
+            button(type = "submit", onclick = "editText()") UPDATE
 
   div(class = "deleteEntry")
-    h2(class = "h2") = "Delete a diary entry..."
-      form(action = '/delete', method = 'POST')
-        label(for = "entry") = "Entry ID: "
-        input(name = 'id', id="id", value="")
-        button(type = 'submit')
-          p DELETE
+    h2(class = "h2")= "Delete a diary entry..."
+      form(action= '/delete', method= 'POST')
+          textarea.delete(name='id' type='id' required placeholder='ID to delete...')
+          br
+          button(type = 'submit') DELETE
