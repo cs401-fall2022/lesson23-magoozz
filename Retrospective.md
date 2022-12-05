@@ -1,7 +1,7 @@
 # Retrospective
 
-- name: Jane Doe
-- email: janedoe@u.boisestate.edu
+- name: Megan Bartlett
+- email: meganbartlett73@u.boisestate.edu
 
 ## Instructions
 
@@ -21,12 +21,12 @@ Be safe CITE!
 
 ## Experience
 
-TODO
+I wanted to do this using AWS to build up my skills but time permitted. I am glad that I am able to walk away from this class knowing how to create my own websites!
 
 ## Known issues or Bugs
 
-TODO
+NONE
 
 ## Sources used
 
-TODO
+Lab 10
